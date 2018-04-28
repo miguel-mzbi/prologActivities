@@ -1,6 +1,6 @@
 % Miguel Angel Montoya Zaragoza
 % A01226045
-%
+
 % Methods that actually move items in arrays.
 %
 % hanoiArray(N, O, D, A, RO, RD, RA)
@@ -55,7 +55,7 @@
 %
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 %
-% Method that gives instruction on playing
+% Method that give instruction on playing
 %
 % hanoiText(N, O, D, A)
 % Must be called as follows:
