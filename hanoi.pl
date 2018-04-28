@@ -75,26 +75,36 @@
 %   From a to c
 %   true
 
+% If just 1 piece is moved, return origin tower without top piece,
+% and add that piece to the top of the destination tower.
+% As an array.
 hanoiArray(1, [H|T], Y, Z, NewX, NewY, Z) :-
     NewX = T,
     NewY = [H| Y].
+% Move n-1 pieces from origin to auxiliar tower,
+% Move nth piece to destination,
+% Move n-1 from auxiliar tower to destination tower.
 hanoiArray(N, X, Y, Z, NewX, NewY, NewZ) :-
     N > 1,
     M is N -1,
     hanoiArray(M, X, Z, Y, Xt1, Zt1, Yt1),
     hanoiArray(1, Xt1, Yt1, Zt1, Xt2, Yt2, Zt2),
     hanoiArray(M, Zt2, Yt2, Xt2, NewZ, NewY, NewX).
-
+% Automatically set up destination and auxiliar towers.
 hanoiArrayInit(N, X, NewX, NewY, NewZ) :-
     N > 1,
     hanoiArray(N, X, [], [], NewX, NewY, NewZ).
 
+% If just 1 piece is moved.
 hanoiText(1, X, Y, _) :-  
     write("From "), 
     write(X), 
     write(" to "), 
     write(Y), 
     nl. 
+% Move n-1 pieces from origin to auxiliar tower,
+% Move nth piece to destination,
+% Move n-1 from auxiliar tower to destination tower.
 hanoiText(N, X, Y, Z) :- 
     N > 1, 
     M is N - 1, 
