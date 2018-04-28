@@ -1,3 +1,6 @@
+% Miguel Angel Montoya Zaragoza
+% A01226045
+
 % Ex 1:
 % Write a predicate print every second/1 to print every other elementin a list,
 % beginning at the second element —i.e. the 2nd, 4th, 6thelements etc. It should always
