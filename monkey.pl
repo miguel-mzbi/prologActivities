@@ -40,7 +40,7 @@ action(
 canGet(state(_, _, _, has)).
 % Not final state. Must try actions.
 canGet(state(Monkey, Level, Box, Banana)) :-
-    ((Level = onFloor; Level = onBox), (Banana = has; Banana = hasNot)),
+    (((Level = onFloor, Level = onBox), (Banana = has; Banana = hasNot)); Banana = has),
     action(state(Monkey, Level, Box, Banana), _, NewState),
     canGet(NewState).
 
@@ -51,7 +51,7 @@ canGet(state(_, _, _, has), [hasBanana]).
 % Not final state. Must try actions.
 % Unifying action will be stored in route.
 canGet(state(Monkey, Level, Box, Banana), Route) :-
-    ((Level = onFloor; Level = onBox), (Banana = has; Banana = hasNot)),
+    (((Level = onFloor; Level = onBox), (Banana = has; Banana = hasNot)); Banana = has),
     action(state(Monkey, Level, Box, Banana), Action, NewState),
     canGet(NewState, R),
     Route = [Action|R].
